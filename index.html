@@ -1,651 +1,107 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quantenalgorithmen · Gallery Walk</title>
+    <meta
+      name="description"
+      content="Mobile Gallery-Website zu Quantenalgorithmen: Bit, Qubit, Gatter, Deutsch-Jozsa, Willow und Q&A."
+    />
+    <meta property="og:title" content="Quantenalgorithmen · Gallery Walk" />
+    <meta
+      property="og:description"
+      content="Interaktive Lernstrecke in kurzen mobilen Seiten für den Gallery Walk."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/styles/site.css" />
+  </head>
+  <body data-group="start" data-next="/pages/bit.html" data-next-label="Tour starten">
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="/index.html">Quantenalgorithmen</a>
+        <button id="menu-toggle" class="menu-toggle" type="button" aria-expanded="false">
+          Kapitel
+        </button>
+      </header>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quantenalgorithmen — Interaktiv</title>
-  <meta name="description"
-    content="Interaktive Begleit-Website zum wissenschaftlichen Poster über Quantenalgorithmen. Erlebe Qubits, Gatter und den Deutsch-Jozsa Algorithmus." />
-
-  <!-- OG Tags -->
-  <meta property="og:title" content="Quantenalgorithmen — Interaktiv" />
-  <meta property="og:description"
-    content="Von Bits zu Qubits. Interaktiv erleben, was Quantencomputer so mächtig macht." />
-  <meta property="og:type" content="website" />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
-    rel="stylesheet">
-
-  <link rel="stylesheet" href="/src/style.css" />
-</head>
-
-<body>
-
-  <!-- Chapter Navigation Toggle -->
-  <nav id="chapter-nav" class="chapter-nav">
-    <button class="chapter-toggle" id="chapter-toggle" aria-label="Kapitel-Navigation">
-      <span class="toggle-icon">
-        <span></span><span></span><span></span>
-      </span>
-      <span class="toggle-label">Kapitel</span>
-    </button>
-    <div class="chapter-list" id="chapter-list">
-      <a href="#hero" class="chapter-link active" data-chapter="0">
-        <span class="chapter-num">00</span>
-        <span class="chapter-title">Start</span>
-      </a>
-      <a href="#bit-vs-qubit" class="chapter-link" data-chapter="1">
-        <span class="chapter-num">01</span>
-        <span class="chapter-title">Bit vs. Qubit</span>
-      </a>
-      <a href="#gates" class="chapter-link" data-chapter="2">
-        <span class="chapter-num">02</span>
-        <span class="chapter-title">Gatter</span>
-      </a>
-      <a href="#supremacy" class="chapter-link" data-chapter="3">
-        <span class="chapter-num">03</span>
-        <span class="chapter-title">Quantenüberlegenheit</span>
-      </a>
-      <a href="#deutsch-jozsa" class="chapter-link" data-chapter="4">
-        <span class="chapter-num">04</span>
-        <span class="chapter-title">Deutsch-Jozsa</span>
-      </a>
-      <a href="#willow" class="chapter-link" data-chapter="5">
-        <span class="chapter-num">05</span>
-        <span class="chapter-title">Google Willow</span>
-      </a>
-      <a href="#sources" class="chapter-link" data-chapter="6">
-        <span class="chapter-num">06</span>
-        <span class="chapter-title">Quellen</span>
-      </a>
-    </div>
-  </nav>
-
-  <!-- Progress Bar -->
-  <div class="progress-bar" id="progress-bar"></div>
-
-  <!-- ===================== HERO ===================== -->
-  <section id="hero" class="section section--hero">
-    <div class="hero-content">
-      <div class="hero-badge">Informatik · Schuljahr 25/26</div>
-      <h1 class="hero-title">
-        <span class="hero-title-line">Quanten</span>
-        <span class="hero-title-line hero-title-accent">algorithmen</span>
-      </h1>
-      <blockquote class="hero-quote">
-        <p>"Nature isn't classical, dammit, and if you want to make a simulation of nature, you'd better make it quantum
-          mechanical."</p>
-        <cite>— Richard P. Feynman, 1981</cite>
-      </blockquote>
-      <p class="hero-subtitle">Von Bits zu Qubits — Interaktiv erleben, was Quantencomputer so mächtig macht.</p>
-      <div class="hero-authors">Christian Raileanu · Leon Lin · Rijad Besic</div>
-      <a href="#bit-vs-qubit" class="hero-cta">
-        <span>Erkunden</span>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round">
-          <path d="M12 5v14M5 12l7 7 7-7" />
-        </svg>
-      </a>
-    </div>
-    <div class="hero-grid-bg"></div>
-  </section>
-
-  <!-- ===================== BIT VS QUBIT ===================== -->
-  <section id="bit-vs-qubit" class="section section--lesson">
-    <div class="lesson-container">
-      <div class="section-header">
-        <span class="section-num">01</span>
-        <h2 class="section-title">Bit vs. Qubit</h2>
-        <p class="section-desc">Der fundamentale Unterschied zwischen klassischer und quantenbasierter Information.</p>
-      </div>
-
-      <!-- Interactive Bit Toggle -->
-      <div class="card card--interactive">
-        <h3 class="card-label">Klassisches Bit</h3>
-        <p class="card-text">Ein Bit kennt nur zwei Zustände: <strong>0</strong> (aus) oder <strong>1</strong> (an).
-          Tippe, um umzuschalten.</p>
-        <div class="bit-toggle-wrap">
-          <button class="bit-toggle" id="bit-toggle" data-state="0">
-            <span class="bit-value">0</span>
-            <span class="bit-label-off">OFF</span>
-            <span class="bit-label-on">ON</span>
-            <span class="bit-slider"></span>
-          </button>
-        </div>
-        <p class="card-footnote">⚡ Ein starres System. Keine Zwischenstufen möglich.</p>
-      </div>
-
-      <!-- Qubit Visualization -->
-      <div class="card card--interactive card--qubit">
-        <h3 class="card-label">Qubit</h3>
-        <p class="card-text">Ein Qubit kann <strong>0</strong>, <strong>1</strong> oder <strong>beides
-            gleichzeitig</strong> sein — das nennt man <em>Superposition</em>.</p>
-
-        <div class="qubit-visual" id="qubit-visual">
-          <div class="bloch-sphere">
-            <div class="sphere-ring sphere-ring--x"></div>
-            <div class="sphere-ring sphere-ring--y"></div>
-            <div class="sphere-ring sphere-ring--z"></div>
-            <div class="sphere-dot sphere-dot--north" title="|0⟩">|0⟩</div>
-            <div class="sphere-dot sphere-dot--south" title="|1⟩">|1⟩</div>
-            <div class="qubit-arrow" id="qubit-arrow"></div>
-          </div>
-        </div>
-
-        <div class="qubit-controls">
-          <button class="qubit-btn" data-action="zero">|0⟩</button>
-          <button class="qubit-btn" data-action="one">|1⟩</button>
-          <button class="qubit-btn qubit-btn--accent" data-action="super">Superposition</button>
-        </div>
-        <div class="qubit-state" id="qubit-state">Zustand: |0⟩</div>
-      </div>
-
-      <!-- Comparison Insight -->
-      <div class="card card--insight">
-        <div class="insight-icon">💡</div>
-        <p>Stell dir ein <strong>Bit</strong> als Lichtschalter vor — an oder aus. Ein <strong>Qubit</strong> ist wie
-          ein Dimmer, der gleichzeitig hell und dunkel sein kann, bis du hinschaust.</p>
-      </div>
-
-      <!-- Exponential Growth -->
-      <div class="card card--interactive">
-        <h3 class="card-label">Exponentielles Wachstum</h3>
-        <p class="card-text">Jedes zusätzliche Qubit <strong>verdoppelt</strong> die Anzahl der gleichzeitigen Zustände.
-        </p>
-        <div class="exp-slider-wrap">
-          <label for="qubit-slider" class="slider-label">
-            <span>Anzahl Qubits:</span>
-            <span class="slider-value" id="qubit-count">1</span>
-          </label>
-          <input type="range" id="qubit-slider" min="1" max="20" value="1" class="custom-slider" />
-          <div class="exp-result">
-            <span class="exp-result-label">Gleichzeitige Zustände:</span>
-            <span class="exp-result-value" id="exp-value">2</span>
-          </div>
-          <div class="exp-comparison" id="exp-comparison"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== GATTER ===================== -->
-  <section id="gates" class="section section--lesson">
-    <div class="lesson-container">
-      <div class="section-header">
-        <span class="section-num">02</span>
-        <h2 class="section-title">Gatter</h2>
-        <p class="section-desc">Gatter sind die Grundbausteine, die Informationen verarbeiten — klassisch und in der
-          Quantenwelt.</p>
-      </div>
-
-      <!-- Tab Toggle: Klassisch / Quanten -->
-      <div class="gate-tabs">
-        <button class="gate-tab active" data-tab="classical">Klassisch</button>
-        <button class="gate-tab" data-tab="quantum">Quanten</button>
-      </div>
-
-      <!-- Classical Gates -->
-      <div class="gate-panel active" id="panel-classical">
-
-        <!-- NOT Gate -->
-        <div class="card card--gate">
-          <div class="gate-header">
-            <div class="gate-symbol gate-symbol--not">NOT</div>
-            <div>
-              <h3 class="gate-name">NOT-Gatter</h3>
-              <p class="gate-desc">Dreht das Signal um: 0 → 1, 1 → 0</p>
+      <main class="page">
+        <div class="page-frame">
+          <section class="card hero-card" data-reveal>
+            <span class="eyebrow">Informatik · Schuljahr 25/26</span>
+            <h1 class="headline">Quantenalgorithmen als mobile Lernstrecke</h1>
+            <p class="lede">
+              Diese Website ist für deinen Gallery Walk gebaut: kurze Seiten, wenig Scrollen, klare Kernideen und
+              direkte Antworten auf typische Fragen.
+            </p>
+            <p class="one-liner">
+              “Nature isn’t classical ... you’d better make it quantum mechanical.” · Richard P. Feynman
+            </p>
+            <div class="author-row">
+              <span class="author-pill">Christian Raileanu</span>
+              <span class="author-pill">Leon Lin</span>
+              <span class="author-pill">Rijad Besic</span>
             </div>
-          </div>
-          <div class="gate-demo gate-demo--single">
-            <button class="gate-input" id="not-input" data-val="0">0</button>
-            <div class="gate-arrow">→</div>
-            <div class="gate-box">NOT</div>
-            <div class="gate-arrow">→</div>
-            <div class="gate-output" id="not-output">1</div>
-          </div>
-        </div>
+            <div class="cta-row">
+              <a class="btn btn--primary" href="/pages/bit.html">Start Tour</a>
+              <a class="btn btn--ghost" href="/pages/faq.html">Q&A Modus</a>
+            </div>
+          </section>
 
-        <!-- AND Gate -->
-        <div class="card card--gate">
-          <div class="gate-header">
-            <div class="gate-symbol gate-symbol--and">AND</div>
-            <div>
-              <h3 class="gate-name">AND-Gatter</h3>
-              <p class="gate-desc">"1" nur wenn <strong>beide</strong> Eingaben 1 sind</p>
+          <section class="card" data-reveal>
+            <h2 class="section-title">So ist die Tour aufgebaut</h2>
+            <p class="section-subtitle">Ein Thema pro Seite, jeweils in 30–45 Sekunden erfassbar.</p>
+            <div class="mini-grid">
+              <article class="mini-card">
+                <h3 class="mini-card__title">01 Grundlagen</h3>
+                <p class="mini-card__text">Bit, Qubit und Superposition als intuitiver Einstieg.</p>
+              </article>
+              <article class="mini-card">
+                <h3 class="mini-card__title">02 Gatter</h3>
+                <p class="mini-card__text">Klassische und Quanten-Gatter als guided Simulationen.</p>
+              </article>
+              <article class="mini-card">
+                <h3 class="mini-card__title">03 Algorithmen</h3>
+                <p class="mini-card__text">Deutsch-Jozsa + Quantenüberlegenheit kompakt visualisiert.</p>
+              </article>
+              <article class="mini-card">
+                <h3 class="mini-card__title">04 Live-Fragen</h3>
+                <p class="mini-card__text">FAQ-Karten mit Kurzantwort und Vertiefung bei Nachfragen.</p>
+              </article>
             </div>
-          </div>
-          <div class="gate-demo gate-demo--double">
-            <div class="gate-inputs">
-              <button class="gate-input" id="and-a" data-val="0">0</button>
-              <button class="gate-input" id="and-b" data-val="0">0</button>
-            </div>
-            <div class="gate-arrow">→</div>
-            <div class="gate-box">AND</div>
-            <div class="gate-arrow">→</div>
-            <div class="gate-output" id="and-output">0</div>
-          </div>
-        </div>
+          </section>
 
-        <!-- OR Gate -->
-        <div class="card card--gate">
-          <div class="gate-header">
-            <div class="gate-symbol gate-symbol--or">OR</div>
-            <div>
-              <h3 class="gate-name">OR-Gatter</h3>
-              <p class="gate-desc">"1" wenn <strong>mindestens eine</strong> Eingabe 1 ist</p>
-            </div>
-          </div>
-          <div class="gate-demo gate-demo--double">
-            <div class="gate-inputs">
-              <button class="gate-input" id="or-a" data-val="0">0</button>
-              <button class="gate-input" id="or-b" data-val="0">0</button>
-            </div>
-            <div class="gate-arrow">→</div>
-            <div class="gate-box">OR</div>
-            <div class="gate-arrow">→</div>
-            <div class="gate-output" id="or-output">0</div>
-          </div>
-        </div>
-
-        <!-- XOR Gate -->
-        <div class="card card--gate">
-          <div class="gate-header">
-            <div class="gate-symbol gate-symbol--xor">XOR</div>
-            <div>
-              <h3 class="gate-name">XOR-Gatter</h3>
-              <p class="gate-desc">"1" wenn Eingaben <strong>unterschiedlich</strong> sind</p>
-            </div>
-          </div>
-          <div class="gate-demo gate-demo--double">
-            <div class="gate-inputs">
-              <button class="gate-input" id="xor-a" data-val="0">0</button>
-              <button class="gate-input" id="xor-b" data-val="0">0</button>
-            </div>
-            <div class="gate-arrow">→</div>
-            <div class="gate-box">XOR</div>
-            <div class="gate-arrow">→</div>
-            <div class="gate-output" id="xor-output">0</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Quantum Gates -->
-      <div class="gate-panel" id="panel-quantum">
-
-        <!-- Pauli-X -->
-        <div class="card card--gate card--quantum-gate">
-          <div class="gate-header">
-            <div class="gate-symbol gate-symbol--pauli">X</div>
-            <div>
-              <h3 class="gate-name">Pauli-X</h3>
-              <p class="gate-desc">Das "Quanten-NOT-Gatter" — dreht den Zustand um 180° auf der X-Achse.</p>
-            </div>
-          </div>
-          <div class="quantum-gate-demo">
-            <div class="qg-state" id="pauli-state">|0⟩</div>
-            <button class="qg-apply" id="pauli-apply">Pauli-X anwenden</button>
-            <div class="qg-arrow">→</div>
-            <div class="qg-result" id="pauli-result">|0⟩</div>
-          </div>
-        </div>
-
-        <!-- Hadamard -->
-        <div class="card card--gate card--quantum-gate">
-          <div class="gate-header">
-            <div class="gate-symbol gate-symbol--hadamard">H</div>
-            <div>
-              <h3 class="gate-name">Hadamard</h3>
-              <p class="gate-desc">Bringt ein Qubit in <strong>Superposition</strong> — gleichzeitig 0 und 1.</p>
-            </div>
-          </div>
-          <div class="quantum-gate-demo">
-            <div class="qg-state" id="hadamard-state">|0⟩</div>
-            <button class="qg-apply" id="hadamard-apply">Hadamard anwenden</button>
-            <div class="qg-arrow">→</div>
-            <div class="qg-result" id="hadamard-result">|0⟩</div>
-          </div>
-          <div class="qg-explanation" id="hadamard-explain"></div>
-        </div>
-
-        <!-- CNOT -->
-        <div class="card card--gate card--quantum-gate">
-          <div class="gate-header">
-            <div class="gate-symbol gate-symbol--cnot">CX</div>
-            <div>
-              <h3 class="gate-name">CNOT</h3>
-              <p class="gate-desc">Controlled-NOT: Wenn Kontroll-Qubit = 1, wird das Ziel invertiert. Erzeugt
-                <strong>Verschränkung</strong>.</p>
-            </div>
-          </div>
-          <div class="cnot-demo">
-            <div class="cnot-qubits">
-              <div class="cnot-qubit">
-                <span class="cnot-label">Kontrolle</span>
-                <button class="gate-input cnot-input" id="cnot-control" data-val="0">0</button>
+          <section class="card" data-reveal>
+            <h2 class="section-title">Flow für Vorbeilaufende</h2>
+            <div class="stat-strip">
+              <div class="stat-box">
+                <p class="stat-value">10</p>
+                <p class="stat-label">Mini-Seiten</p>
               </div>
-              <div class="cnot-qubit">
-                <span class="cnot-label">Ziel</span>
-                <button class="gate-input cnot-input" id="cnot-target" data-val="0">0</button>
+              <div class="stat-box">
+                <p class="stat-value">~6 min</p>
+                <p class="stat-label">Komplette Tour</p>
               </div>
             </div>
-            <div class="gate-arrow">→</div>
-            <div class="gate-box">CNOT</div>
-            <div class="gate-arrow">→</div>
-            <div class="cnot-results">
-              <div class="cnot-result-item">
-                <span class="cnot-label">Kontrolle</span>
-                <div class="gate-output" id="cnot-out-ctrl">0</div>
-              </div>
-              <div class="cnot-result-item">
-                <span class="cnot-label">Ziel</span>
-                <div class="gate-output" id="cnot-out-target">0</div>
-              </div>
-            </div>
-          </div>
+            <p class="pill-note">
+              Unten findest du immer die Schnellnavigation. Rechts unten führt dich der Weiter-Button automatisch zur
+              nächsten Station.
+            </p>
+          </section>
         </div>
-
-        <div class="card card--insight">
-          <div class="insight-icon">🔗</div>
-          <p>CNOT erzeugt <strong>Verschränkung</strong> — zwei Qubits werden voneinander abhängig. Misst du eines,
-            weißt du sofort den Zustand des anderen, egal wie weit sie entfernt sind.</p>
-        </div>
-      </div>
+      </main>
     </div>
-  </section>
 
-  <!-- ===================== QUANTENÜBERLEGENHEIT ===================== -->
-  <section id="supremacy" class="section section--lesson">
-    <div class="lesson-container">
-      <div class="section-header">
-        <span class="section-num">03</span>
-        <h2 class="section-title">Quantenüberlegenheit</h2>
-        <p class="section-desc">Warum Quantencomputer bei bestimmten Problemen exponentiell schneller sind.</p>
-      </div>
+    <nav id="bottom-tabs" class="bottom-tabs" aria-label="Schnellnavigation"></nav>
+    <button id="next-button" class="next-button" type="button"></button>
+    <div id="chapter-menu" class="chapter-menu" hidden></div>
 
-      <div class="card card--interactive">
-        <h3 class="card-label">Quantenparallelismus</h3>
-        <p class="card-text">Ein klassischer Computer prüft Möglichkeiten <strong>nacheinander</strong>. Ein
-          Quantencomputer verarbeitet dank Superposition <strong>alle gleichzeitig</strong>.</p>
-
-        <div class="race-container">
-          <div class="race-controls">
-            <label for="race-slider" class="slider-label">
-              <span>Problemgröße (N):</span>
-              <span class="slider-value" id="race-n">3</span>
-            </label>
-            <input type="range" id="race-slider" min="1" max="10" value="3" class="custom-slider" />
-          </div>
-
-          <div class="race-tracks">
-            <div class="race-track">
-              <div class="race-label">Klassisch</div>
-              <div class="race-bar-wrap">
-                <div class="race-bar race-bar--classical" id="race-classical"></div>
-              </div>
-              <div class="race-steps" id="race-classical-steps">8 Schritte</div>
-            </div>
-            <div class="race-track">
-              <div class="race-label">Quanten</div>
-              <div class="race-bar-wrap">
-                <div class="race-bar race-bar--quantum" id="race-quantum"></div>
-              </div>
-              <div class="race-steps" id="race-quantum-steps">1 Schritt</div>
-            </div>
-          </div>
-
-          <button class="race-go" id="race-go">Race starten</button>
-        </div>
-      </div>
-
-      <div class="card card--insight">
-        <div class="insight-icon">🚀</div>
-        <p>Bei <strong>N = 50 Qubits</strong> gibt es über 1 Billiarde gleichzeitige Zustände. Ein klassischer Computer
-          bräuchte dafür <strong>länger als das Alter des Universums</strong>.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== DEUTSCH-JOZSA ===================== -->
-  <section id="deutsch-jozsa" class="section section--lesson">
-    <div class="lesson-container">
-      <div class="section-header">
-        <span class="section-num">04</span>
-        <h2 class="section-title">Deutsch-Jozsa</h2>
-        <p class="section-desc">Der erste Beweis, dass Quantencomputer exponentiell schneller sein können.</p>
-      </div>
-
-      <div class="card">
-        <h3 class="card-label">Das Problem</h3>
-        <p class="card-text">Gegeben: Eine Funktion f(x), die <strong>garantiert</strong> entweder:</p>
-        <div class="dj-options">
-          <div class="dj-option">
-            <div class="dj-option-label">Konstant</div>
-            <div class="dj-option-desc">Alle Ausgaben sind gleich</div>
-            <div class="dj-option-example">f(0)=1, f(1)=1, f(2)=1, f(3)=1</div>
-          </div>
-          <div class="dj-option">
-            <div class="dj-option-label">Balanciert</div>
-            <div class="dj-option-desc">Genau 50/50 verteilt</div>
-            <div class="dj-option-example">f(0)=0, f(1)=1, f(2)=0, f(3)=1</div>
-          </div>
-        </div>
-        <p class="card-text" style="margin-top: 1rem;">Frage: <strong>Ist f(x) konstant oder balanciert?</strong></p>
-      </div>
-
-      <!-- Step-by-Step Algorithm -->
-      <div class="card card--interactive">
-        <h3 class="card-label">Algorithmus durchspielen</h3>
-        <p class="card-text">Wähle eine Funktion und erlebe den Algorithmus Schritt für Schritt.</p>
-
-        <div class="dj-setup">
-          <button class="dj-choice active" data-type="constant" id="dj-constant">Konstant</button>
-          <button class="dj-choice" data-type="balanced" id="dj-balanced">Balanciert</button>
-        </div>
-
-        <div class="dj-steps">
-          <div class="dj-step" id="dj-step-0">
-            <div class="dj-step-num">1</div>
-            <div class="dj-step-content">
-              <div class="dj-step-title">Superposition erzeugen</div>
-              <div class="dj-step-desc">Hadamard-Gatter auf alle Qubits → alle möglichen Eingaben gleichzeitig</div>
-              <div class="dj-step-visual" id="dj-visual-0">
-                <div class="dj-qubit-states">|0⟩ → H → <span class="dj-super">|0⟩ + |1⟩</span></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="dj-step" id="dj-step-1">
-            <div class="dj-step-num">2</div>
-            <div class="dj-step-content">
-              <div class="dj-step-title">Orakel befragen</div>
-              <div class="dj-step-desc">Die Funktion wird auf alle Zustände gleichzeitig angewendet — die Antwort wird
-                in die Phase kodiert.</div>
-              <div class="dj-step-visual" id="dj-visual-1">
-                <div class="dj-oracle">Orakel: f(x) = <span id="dj-oracle-type">konstant</span></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="dj-step" id="dj-step-2">
-            <div class="dj-step-num">3</div>
-            <div class="dj-step-content">
-              <div class="dj-step-title">Interferenz</div>
-              <div class="dj-step-desc">Nochmal Hadamard — die Phasen interferieren. Gleiche Phasen verstärken sich,
-                verschiedene löschen sich aus.</div>
-              <div class="dj-step-visual" id="dj-visual-2"></div>
-            </div>
-          </div>
-
-          <div class="dj-step" id="dj-step-3">
-            <div class="dj-step-num">4</div>
-            <div class="dj-step-content">
-              <div class="dj-step-title">Messung</div>
-              <div class="dj-step-desc">Eine einzige Messung genügt!</div>
-              <div class="dj-step-visual" id="dj-visual-3"></div>
-              <div class="dj-result" id="dj-final-result"></div>
-            </div>
-          </div>
-        </div>
-
-        <button class="dj-run" id="dj-run">Algorithmus starten</button>
-      </div>
-
-      <!-- Comparison Table -->
-      <div class="card">
-        <h3 class="card-label">Der Speedup</h3>
-        <div class="dj-table-wrap">
-          <table class="dj-table">
-            <thead>
-              <tr>
-                <th>Algorithmus</th>
-                <th>Klassisch</th>
-                <th>Quanten</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Deutsch (n=1)</td>
-                <td>2 Abfragen</td>
-                <td class="highlight">1 Abfrage</td>
-              </tr>
-              <tr>
-                <td>Deutsch-Jozsa (n Qubits)</td>
-                <td>2<sup>n-1</sup> + 1</td>
-                <td class="highlight">1 Abfrage</td>
-              </tr>
-              <tr class="tr-example">
-                <td>Beispiel: n = 10</td>
-                <td>513 Abfragen</td>
-                <td class="highlight">1 Abfrage</td>
-              </tr>
-              <tr class="tr-example">
-                <td>Beispiel: n = 50</td>
-                <td>~562 Billionen</td>
-                <td class="highlight">1 Abfrage</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== GOOGLE WILLOW ===================== -->
-  <section id="willow" class="section section--lesson">
-    <div class="lesson-container">
-      <div class="section-header">
-        <span class="section-num">05</span>
-        <h2 class="section-title">Google Willow</h2>
-        <p class="section-desc">Der Durchbruch, der zeigt: Quantencomputer sind nicht nur Theorie.</p>
-      </div>
-
-      <div class="card card--willow">
-        <div class="willow-stat">
-          <div class="willow-stat-value">&lt; 5 min</div>
-          <div class="willow-stat-label">Rechenzeit Willow-Chip</div>
-        </div>
-        <div class="willow-vs">vs.</div>
-        <div class="willow-stat">
-          <div class="willow-stat-value">10<sup>25</sup> Jahre</div>
-          <div class="willow-stat-label">Schnellster Supercomputer</div>
-        </div>
-        <p class="willow-context">Das ist <strong>länger als das Alter des Universums</strong> — ganz massiv länger.</p>
-      </div>
-
-      <div class="card">
-        <h3 class="card-label">Quantum Error Correction</h3>
-        <p class="card-text">Das Besondere an Willow: Erstmals sinkt die Fehlerrate, wenn man <strong>mehr
-            Qubits</strong> hinzufügt.</p>
-        <div class="qec-visual">
-          <div class="qec-item">
-            <div class="qec-qubits">Wenige Qubits</div>
-            <div class="qec-bar qec-bar--high"></div>
-            <div class="qec-label">Hohe Fehlerrate</div>
-          </div>
-          <div class="qec-arrow">→</div>
-          <div class="qec-item">
-            <div class="qec-qubits">Viele Qubits</div>
-            <div class="qec-bar qec-bar--low"></div>
-            <div class="qec-label">Niedrige Fehlerrate</div>
-          </div>
-        </div>
-        <p class="card-footnote">Dies ist der entscheidende Schritt von experimenteller Physik zum <strong>stabilen
-            Quantencomputer</strong>.</p>
-      </div>
-
-      <!-- Scale Visualization -->
-      <div class="card card--interactive">
-        <h3 class="card-label">Was bedeutet 10²⁵ Jahre?</h3>
-        <div class="scale-items">
-          <div class="scale-item">
-            <div class="scale-bar" style="--w: 0.0001%"></div>
-            <div class="scale-text">
-              <span class="scale-num">5 min</span>
-              <span class="scale-name">Willow-Chip</span>
-            </div>
-          </div>
-          <div class="scale-item">
-            <div class="scale-bar" style="--w: 0.001%"></div>
-            <div class="scale-text">
-              <span class="scale-num">80 Jahre</span>
-              <span class="scale-name">Menschenleben</span>
-            </div>
-          </div>
-          <div class="scale-item">
-            <div class="scale-bar" style="--w: 0.5%"></div>
-            <div class="scale-text">
-              <span class="scale-num">13.8 Mrd. Jahre</span>
-              <span class="scale-name">Alter des Universums</span>
-            </div>
-          </div>
-          <div class="scale-item">
-            <div class="scale-bar" style="--w: 100%"></div>
-            <div class="scale-text">
-              <span class="scale-num">10²⁵ Jahre</span>
-              <span class="scale-name">Supercomputer-Rechenzeit</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== QUELLEN ===================== -->
-  <section id="sources" class="section section--lesson">
-    <div class="lesson-container">
-      <div class="section-header">
-        <span class="section-num">06</span>
-        <h2 class="section-title">Quellen</h2>
-        <p class="section-desc">Alle Referenzen und weiterführende Materialien.</p>
-      </div>
-
-      <div class="card">
-        <a href="https://quantum-sources.vercel.app/" target="_blank" rel="noopener" class="sources-link">
-          <div class="sources-link-icon">📚</div>
-          <div class="sources-link-text">
-            <span class="sources-link-title">Quellenverzeichnis öffnen</span>
-            <span class="sources-link-url">quantum-sources.vercel.app</span>
-          </div>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round">
-            <path d="M7 17L17 7M17 7H7M17 7v10" />
-          </svg>
-        </a>
-      </div>
-
-      <div class="footer">
-        <p>Informatik — Fr. Gerlach — Schuljahr 25/26</p>
-        <p class="footer-authors">Christian Raileanu · Leon Lin · Rijad Besic</p>
-      </div>
-    </div>
-  </section>
-
-  <script type="module" src="/src/main.js"></script>
-</body>
-
+    <script type="module" src="/src/js/app.js"></script>
+  </body>
 </html>

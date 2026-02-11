@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Google Willow · Quantenalgorithmen</title>
+    <meta name="description" content="Willow-Chip und skalierende Error Correction kompakt visualisiert." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/styles/site.css" />
+  </head>
+  <body data-group="algorithmen" data-next="/pages/faq.html" data-next-label="Weiter: Gallery-FAQ">
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="/index.html">Quantenalgorithmen</a>
+        <button id="menu-toggle" class="menu-toggle" type="button" aria-expanded="false">
+          Kapitel
+        </button>
+      </header>
+
+      <main class="page">
+        <div class="page-frame">
+          <section class="card hero-card" data-reveal>
+            <span class="eyebrow">Algorithmen 3/3</span>
+            <h1 class="section-title">Google Willow-Chip</h1>
+            <p class="section-subtitle">
+              Kernaussage: Nicht nur schneller rechnen, sondern Fehler bei Skalierung kontrollieren.
+            </p>
+            <div class="stat-strip">
+              <div class="stat-box">
+                <p class="stat-value">&lt; 5 min</p>
+                <p class="stat-label">Willow für Referenzaufgabe</p>
+              </div>
+              <div class="stat-box">
+                <p class="stat-value">10²⁵ Jahre</p>
+                <p class="stat-label">Klassischer Vergleichswert</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="card" data-reveal>
+            <div class="range-wrap">
+              <div class="range-header">
+                <h3>Skalierung logischer Qubits</h3>
+                <span id="willow-level" class="range-value">3 Blöcke</span>
+              </div>
+              <input id="willow-qubits" type="range" min="1" max="6" value="3" />
+            </div>
+
+            <div class="qec-bars">
+              <div class="qec-row">
+                <span>Fehlerrate</span>
+                <div class="qec-track">
+                  <div id="willow-error-fill" class="qec-fill"></div>
+                </div>
+              </div>
+              <div class="qec-row">
+                <span>Stabilität</span>
+                <div class="qec-track">
+                  <div id="willow-stability-fill" class="qec-fill is-good"></div>
+                </div>
+              </div>
+            </div>
+            <p id="willow-error-text" class="pill-note"></p>
+          </section>
+
+          <section class="card" data-reveal>
+            <p class="one-liner">
+              Merksatz: Der entscheidende Fortschritt ist „Fehler runter trotz mehr Qubits“.
+            </p>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <nav id="bottom-tabs" class="bottom-tabs" aria-label="Schnellnavigation"></nav>
+    <button id="next-button" class="next-button" type="button"></button>
+    <div id="chapter-menu" class="chapter-menu" hidden></div>
+
+    <script type="module" src="/src/js/app.js"></script>
+  </body>
+</html>

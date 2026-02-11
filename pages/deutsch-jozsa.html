@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deutsch-Jozsa · Quantenalgorithmen</title>
+    <meta name="description" content="4-Schritt-Demo des Deutsch-Jozsa-Algorithmus." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/styles/site.css" />
+  </head>
+  <body data-group="algorithmen" data-next="/pages/willow.html" data-next-label="Weiter: Willow-Chip">
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="/index.html">Quantenalgorithmen</a>
+        <button id="menu-toggle" class="menu-toggle" type="button" aria-expanded="false">
+          Kapitel
+        </button>
+      </header>
+
+      <main class="page">
+        <div class="page-frame">
+          <section class="card" data-reveal>
+            <span class="eyebrow">Algorithmen 2/3</span>
+            <h1 class="section-title">Deutsch-Jozsa in 4 Schritten</h1>
+            <p class="section-subtitle">
+              Frage: Ist f(x) konstant oder balanciert? Der Quantenalgorithmus schafft das mit einer Abfrage.
+            </p>
+          </section>
+
+          <section class="card" data-reveal>
+            <div class="segmented">
+              <button id="dj-constant" type="button" class="is-active">Konstant</button>
+              <button id="dj-balanced" type="button">Balanciert</button>
+            </div>
+
+            <div class="stepper">
+              <article class="dj-step">
+                <h4>1. Superposition erzeugen</h4>
+                <p>Hadamard auf den Eingang: viele Zustände laufen gleichzeitig.</p>
+              </article>
+              <article class="dj-step">
+                <h4>2. Oracle anwenden</h4>
+                <p id="dj-oracle-copy">Oracle liefert dieselbe Phase für alle Eingaben.</p>
+              </article>
+              <article class="dj-step">
+                <h4>3. Interferenz</h4>
+                <p id="dj-interference-copy">Noch nicht gestartet.</p>
+              </article>
+              <article class="dj-step">
+                <h4>4. Messung</h4>
+                <p id="dj-measurement-copy">Noch nicht gestartet.</p>
+              </article>
+            </div>
+
+            <button id="dj-run" class="btn btn--primary" type="button">Ablauf starten</button>
+            <div id="dj-result" class="result-box">Noch kein Ergebnis. Starte den Ablauf.</div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <nav id="bottom-tabs" class="bottom-tabs" aria-label="Schnellnavigation"></nav>
+    <button id="next-button" class="next-button" type="button"></button>
+    <div id="chapter-menu" class="chapter-menu" hidden></div>
+
+    <script type="module" src="/src/js/app.js"></script>
+  </body>
+</html>

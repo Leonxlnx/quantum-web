@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Klassische Gatter · Quantenalgorithmen</title>
+    <meta name="description" content="Guided Simulation für NOT, AND, OR und XOR." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/styles/site.css" />
+  </head>
+  <body
+    data-group="gatter"
+    data-next="/pages/gates-quantum.html"
+    data-next-label="Weiter: Quanten-Gatter"
+  >
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="/index.html">Quantenalgorithmen</a>
+        <button id="menu-toggle" class="menu-toggle" type="button" aria-expanded="false">
+          Kapitel
+        </button>
+      </header>
+
+      <main class="page">
+        <div class="page-frame">
+          <section class="card" data-reveal>
+            <span class="eyebrow">Gatter 1/2</span>
+            <h1 class="section-title">Klassische Logik-Gatter</h1>
+            <p class="section-subtitle">
+              Diese Operatoren verarbeiten Bits deterministisch und bilden die Basis klassischer Schaltkreise.
+            </p>
+          </section>
+
+          <section class="card" data-reveal id="classic-gate-sim">
+            <div class="segmented">
+              <button type="button" class="gate-type-btn is-active" data-type="not">NOT</button>
+              <button type="button" class="gate-type-btn" data-type="and">AND</button>
+              <button type="button" class="gate-type-btn" data-type="or">OR</button>
+            </div>
+            <div class="segmented">
+              <button type="button" class="gate-type-btn" data-type="xor">XOR</button>
+            </div>
+
+            <div class="sim-grid">
+              <div class="io-row">
+                <div class="io-stack">
+                  <p class="io-label">Eingang A</p>
+                  <button id="classic-input-a" class="io-toggle" type="button">0</button>
+                </div>
+                <div class="io-arrow">→</div>
+                <div class="io-stack">
+                  <p class="io-label">Ausgang</p>
+                  <div id="classic-output" class="io-output">0</div>
+                </div>
+              </div>
+
+              <div id="classic-input-b-wrap" class="io-stack is-hidden">
+                <p class="io-label">Eingang B</p>
+                <button id="classic-input-b" class="io-toggle" type="button">0</button>
+              </div>
+
+              <p id="classic-rule" class="pill-note">NOT: invertiert den Eingang.</p>
+            </div>
+          </section>
+
+          <section class="card" data-reveal>
+            <p class="one-liner">
+              Merksatz: Klassische Gatter sind eindeutig. Gleicher Input ergibt immer denselben Output.
+            </p>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <nav id="bottom-tabs" class="bottom-tabs" aria-label="Schnellnavigation"></nav>
+    <button id="next-button" class="next-button" type="button"></button>
+    <div id="chapter-menu" class="chapter-menu" hidden></div>
+
+    <script type="module" src="/src/js/app.js"></script>
+  </body>
+</html>

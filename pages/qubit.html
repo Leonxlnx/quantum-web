@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Qubit · Quantenalgorithmen</title>
+    <meta name="description" content="Qubit und Superposition auf einer simplen Bloch-Visualisierung." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/styles/site.css" />
+  </head>
+  <body data-group="grundlagen" data-next="/pages/gates-classic.html" data-next-label="Weiter: Klassische Gatter">
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="/index.html">Quantenalgorithmen</a>
+        <button id="menu-toggle" class="menu-toggle" type="button" aria-expanded="false">
+          Kapitel
+        </button>
+      </header>
+
+      <main class="page">
+        <div class="page-frame">
+          <section class="card" data-reveal>
+            <span class="eyebrow">Grundlagen 2/2</span>
+            <h1 class="section-title">Qubit: 0, 1 oder Überlagerung</h1>
+            <p class="section-subtitle">
+              Ein Qubit ist nicht nur an/aus. Es kann in einer Superposition aus Basiszuständen liegen.
+            </p>
+          </section>
+
+          <section class="card" data-reveal>
+            <div class="bloch" aria-hidden="true">
+              <span class="bloch-pole bloch-pole--north">|0⟩</span>
+              <span class="bloch-pole bloch-pole--south">|1⟩</span>
+              <span id="qubit-needle" class="qubit-needle"></span>
+            </div>
+            <div class="segmented">
+              <button type="button" data-qubit-target="zero" class="is-active">|0⟩</button>
+              <button type="button" data-qubit-target="super">|+⟩</button>
+              <button type="button" data-qubit-target="one">|1⟩</button>
+            </div>
+            <p id="qubit-state-copy" class="pill-note">Zustand |0⟩: klassischer Nordpol. Voll bestimmt.</p>
+          </section>
+
+          <section class="card" data-reveal>
+            <p class="one-liner">
+              Merksatz: Der Speedup kommt nicht nur von „vielen Zuständen“, sondern von Interferenz zwischen diesen
+              Zuständen.
+            </p>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <nav id="bottom-tabs" class="bottom-tabs" aria-label="Schnellnavigation"></nav>
+    <button id="next-button" class="next-button" type="button"></button>
+    <div id="chapter-menu" class="chapter-menu" hidden></div>
+
+    <script type="module" src="/src/js/app.js"></script>
+  </body>
+</html>

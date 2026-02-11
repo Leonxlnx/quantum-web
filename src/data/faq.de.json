@@ -1,0 +1,44 @@
+[
+  {
+    "id": "speedup-real",
+    "frage": "Ist ein Quantencomputer bei allem automatisch schneller?",
+    "kurzantwort": "Nein. Der Vorteil gilt nur für bestimmte Problemklassen und passende Algorithmen.",
+    "deep_dive": "Deutsch-Jozsa zeigt den Prinzipbeweis: Für klar definierte Aufgaben kann eine Quantenabfrage reichen, wo klassisch viele nötig sind. Für Alltagsaufgaben wie Textverarbeitung ist ein klassischer Rechner weiterhin besser."
+  },
+  {
+    "id": "superposition-means",
+    "frage": "Heißt Superposition, dass ein Qubit einfach zufällig ist?",
+    "kurzantwort": "Nicht nur zufällig. Es ist ein echter quantenmechanischer Überlagerungszustand mit Phase.",
+    "deep_dive": "Der Unterschied ist Interferenz: Phasen können sich verstärken oder auslöschen. Genau daraus entsteht der algorithmische Vorteil. Reiner Zufall allein würde den Speedup nicht liefern."
+  },
+  {
+    "id": "measurement-effect",
+    "frage": "Warum kollabiert das Ergebnis erst bei der Messung?",
+    "kurzantwort": "Vor der Messung arbeitet der Zustand als Wellenfunktion; die Messung projiziert auf ein klassisches Ergebnis.",
+    "deep_dive": "Algorithmen nutzen die Zeit vor der Messung, um durch Gatter die Wahrscheinlichkeiten gezielt zu formen. Danach sieht man nur einen Basiszustand, aber mit sinnvoller Trefferwahrscheinlichkeit."
+  },
+  {
+    "id": "cnot-entanglement",
+    "frage": "Was ist an CNOT so wichtig?",
+    "kurzantwort": "CNOT koppelt Qubits und ermöglicht Verschränkung, die klassisch nicht direkt nachbildbar ist.",
+    "deep_dive": "Ohne Verschränkung wären viele Quantenalgorithmen deutlich schwächer. CNOT ist deshalb ein Kernbaustein in fast allen Quanten-Schaltkreisen."
+  },
+  {
+    "id": "deutsch-jozsa-value",
+    "frage": "Ist der Deutsch-Jozsa-Algorithmus praktisch relevant?",
+    "kurzantwort": "Er ist vor allem didaktisch und historisch wichtig als erster klarer Quanten-Speedup.",
+    "deep_dive": "In realen Produkten dominieren heute andere Verfahren, aber Deutsch-Jozsa vermittelt die zentralen Ideen: Superposition, Oracle, Interferenz und die Rolle der Messung."
+  },
+  {
+    "id": "willow-claim",
+    "frage": "Warum wird der Willow-Chip als Durchbruch bezeichnet?",
+    "kurzantwort": "Weil Error-Correction erstmals in die richtige Richtung skaliert: mehr Qubits können die Fehlerrate senken.",
+    "deep_dive": "Der zentrale Punkt ist nicht nur 'schneller', sondern 'stabiler bei Skalierung'. Das ist die Voraussetzung, damit aus Laborprototypen langfristig robuste Quantenrechner werden."
+  },
+  {
+    "id": "timeline",
+    "frage": "Wann ersetzen Quantencomputer normale Laptops?",
+    "kurzantwort": "Absehbar gar nicht. Wahrscheinlicher ist ein hybrides Modell mit Cloud-Quantenbeschleunigern.",
+    "deep_dive": "Klassische Systeme bleiben für universelle Aufgaben dominant. Quantenhardware wird eher als Spezialwerkzeug für Simulation, Optimierung oder Kryptografie-nahe Aufgaben genutzt."
+  }
+]

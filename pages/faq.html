@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery FAQ · Quantenalgorithmen</title>
+    <meta
+      name="description"
+      content="Schnellantworten für den Gallery Walk mit optionaler Vertiefung pro Frage."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/styles/site.css" />
+  </head>
+  <body data-group="qa" data-next="/pages/sources.html" data-next-label="Weiter: Quellen">
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="/index.html">Quantenalgorithmen</a>
+        <button id="menu-toggle" class="menu-toggle" type="button" aria-expanded="false">
+          Kapitel
+        </button>
+      </header>
+
+      <main class="page">
+        <div class="page-frame">
+          <section class="card" data-reveal>
+            <span class="eyebrow">Q&A Modus</span>
+            <h1 class="section-title">Häufige Fragen im Gallery Walk</h1>
+            <p class="section-subtitle">
+              Jede Karte hat eine Kurzantwort und einen Nachhak-Teil, damit du flexibel reagieren kannst.
+            </p>
+          </section>
+
+          <section class="card" data-reveal>
+            <div id="faq-list" class="faq-list" aria-live="polite"></div>
+          </section>
+
+          <section class="card" data-reveal>
+            <p class="one-liner">
+              Tipp: Starte mit der Kurzantwort und erweitere nur bei echtem Interesse. So bleibst du klar und ruhig.
+            </p>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <nav id="bottom-tabs" class="bottom-tabs" aria-label="Schnellnavigation"></nav>
+    <button id="next-button" class="next-button" type="button"></button>
+    <div id="chapter-menu" class="chapter-menu" hidden></div>
+
+    <script type="module" src="/src/js/app.js"></script>
+  </body>
+</html>

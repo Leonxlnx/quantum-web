@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quanten-Gatter · Quantenalgorithmen</title>
+    <meta name="description" content="Guided Simulation für Pauli-X, Hadamard und CNOT." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/styles/site.css" />
+  </head>
+  <body data-group="gatter" data-next="/pages/supremacy.html" data-next-label="Weiter: Überlegenheit">
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="/index.html">Quantenalgorithmen</a>
+        <button id="menu-toggle" class="menu-toggle" type="button" aria-expanded="false">
+          Kapitel
+        </button>
+      </header>
+
+      <main class="page">
+        <div class="page-frame">
+          <section class="card" data-reveal>
+            <span class="eyebrow">Gatter 2/2</span>
+            <h1 class="section-title">Quanten-Gatter</h1>
+            <p class="section-subtitle">
+              Pauli-X, Hadamard und CNOT verändern Qubit-Zustände und ermöglichen Interferenz sowie Verschränkung.
+            </p>
+          </section>
+
+          <section class="card" data-reveal id="quantum-gate-sim">
+            <div class="segmented">
+              <button type="button" class="qgate-type-btn is-active" data-qtype="pauli">Pauli-X</button>
+              <button type="button" class="qgate-type-btn" data-qtype="hadamard">Hadamard</button>
+              <button type="button" class="qgate-type-btn" data-qtype="cnot">CNOT</button>
+            </div>
+
+            <div class="sim-grid">
+              <div class="io-row">
+                <div class="io-stack">
+                  <p class="io-label">Qubit A</p>
+                  <button id="quantum-input-a" class="io-toggle" type="button">0</button>
+                </div>
+                <div class="io-arrow">→</div>
+                <div class="io-stack">
+                  <p class="io-label">Resultat</p>
+                  <div id="quantum-output" class="io-output">|0⟩</div>
+                </div>
+              </div>
+
+              <div id="quantum-input-b-wrap" class="io-stack is-hidden">
+                <p class="io-label">Qubit B (Ziel)</p>
+                <button id="quantum-input-b" class="io-toggle" type="button">0</button>
+              </div>
+
+              <button id="quantum-apply" class="btn btn--primary" type="button">Gatter anwenden</button>
+              <p id="quantum-note" class="pill-note">Pauli-X kippt |0⟩ zu |1⟩ und zurück.</p>
+            </div>
+          </section>
+
+          <section class="card" data-reveal>
+            <p class="one-liner">
+              Merksatz: Mit Hadamard und CNOT werden aus einzelnen Zuständen vernetzte Quanteninformationen.
+            </p>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <nav id="bottom-tabs" class="bottom-tabs" aria-label="Schnellnavigation"></nav>
+    <button id="next-button" class="next-button" type="button"></button>
+    <div id="chapter-menu" class="chapter-menu" hidden></div>
+
+    <script type="module" src="/src/js/app.js"></script>
+  </body>
+</html>
